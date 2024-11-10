@@ -144,3 +144,23 @@ public class Main {
 
 ## Conclusion  
 Setting up JPA with Hibernate simplifies database operations, enabling developers to focus more on business logic than boilerplate code. It ensures scalability and flexibility while interacting with different relational databases.  
+
+
+---
+
+## IMPORTANT NOTE
+In JPA, we do not use SessionFactory; it is specific to Hibernate. Here's a breakdown:
+
+### JPA (Java Persistence API):
+- JPA uses the `EntityManagerFactory` and `EntityManager` for managing persistence.
+- EntityManagerFactory is similar to Hibernate's SessionFactory.
+- EntityManager is equivalent to Hibernate's Session.
+  
+### Hibernate (as a JPA provider or standalone):
+- Hibernate, when used standalone, uses SessionFactory to create and manage Session instances.
+- When Hibernate is used as a JPA provider, it internally manages EntityManager and EntityManagerFactory but you, as a developer, interact with the standard JPA interfaces.
+
+### Key Differences:
+JPA: `EntityManagerFactory` → `EntityManager`
+Hibernate: `SessionFactory` → `Session`
+
