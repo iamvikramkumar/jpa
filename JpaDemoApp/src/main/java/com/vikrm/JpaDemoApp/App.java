@@ -17,17 +17,28 @@ public class App {
         // How can be create an object of entity manager factory?
         // For create an object of Entity manager factory we have class Name PERSISTENCE class with method name CREATE ENTITY MANAGER FACTORY("and here we have to pass ")
         
+    	Student s = new Student();
+    	s.setId(3);
+        s.setName("Navin");
+        s.setTech("Java");
+        
+    	
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("DemoApp");
         EntityManager em = emf.createEntityManager();
-
         
-        Student s2 = em.find(Student.class, 2);
+        em.getTransaction().begin();
+        em.persist(s);
+        System.out.println("Student details saved in DB " + s);
+        em.getTransaction().commit();
         
-        if (s2 != null) {
-            System.out.println(s2);  // Print student details
-        } else {
-            System.out.println("No student found with ID 2");
-        }
+      //  Student s2 = em.find(Student.class, 2);
+        
+        
+//        if (s2 != null) {
+//            System.out.println(s2);  // Print student details
+//        } else {
+//            System.out.println("No student found with ID 2");
+//        }
         
         
 //        em.getTransaction().begin();
